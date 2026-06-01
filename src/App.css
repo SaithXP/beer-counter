@@ -1,0 +1,61 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #f8fafc;
+  --accent: #fbbf24;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.title {
+  font-size: 32px;
+  margin: 0;
+}
+
+.counterBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 48px;
+  font-weight: bold;
+  background: var(--card);
+  padding: 20px 30px;
+  border-radius: 16px;
+}
+
+.icon {
+  font-size: 40px;
+}
+
+.count {
+  font-size: 50px;
+}
+
+.button {
+  padding: 12px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 12px;
+  border: none;
+  background-color: var(--accent);
+  font-weight: bold;
+  transition: transform 0.1s ease;
+}
+
+.button:active {
+  transform: scale(0.95);
+}
