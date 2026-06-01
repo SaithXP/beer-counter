@@ -2,28 +2,33 @@ import { useState } from "react";
 import './App.css'
 
 function App(){
-  const [count, setcount] = useState(0)
+  const [beers, setBeers] = useState<number []>([])
+  const addBeer = () => {
+    setBeers(prev => [...prev, Date.now()])
+  }
 
   return(
     <div className="container">
       <h1 className="tittle">Beer Counter</h1>
 
-      <div className="counterBox">
-        <span className="icon">🍺</span>
-        <span className="count">{count}</span>
+      <div className="total">
+        Total: {beers.length}
       </div>
 
-      <button 
-        className="button"
-        onClick={() => setcount(count + 1)}
-      >
-          +1 cerveza
-      </button>
-      <button 
-        className="button"
-        onClick={() => setcount(count - 1)}
-      >
-          -1 cerveza
+      <div className="listWrapper">
+        <div className="list">
+          {beers.map((beer, index) => (
+            <div key={beer} className="card">
+              Cerveza {index +1}
+            </div>
+          ))}
+        </div>
+
+        <div className="fadeBottom" />
+      </div>
+
+      <button className="fab" onClick={addBeer}>
+        +
       </button>
     </div>
   )
