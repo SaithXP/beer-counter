@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../App.css'
-import BeerSelectorModal from './BeerSelectionModal'
+import { BEERS } from '../data/beers'
+import { BEER_TYPES } from '../data/beerTypes'
+import SelectionModal from './SelectionModal'
 
 type Props = {
   onClose: () => void
@@ -24,6 +26,7 @@ export default function BeerModal({ onClose, onSave }: Props) {
   }
 
   const [showBeerSelector, setShowBeerSelector] = useState(false)
+  const [showTypeSelector, setShowTypeSelector] = useState(false)
 
   return (
     <>
@@ -39,9 +42,12 @@ export default function BeerModal({ onClose, onSave }: Props) {
           {form.name || 'Seleccionar cerveza'}
         </button>
 
-        <select>
-          ...
-        </select>
+        <button
+          type="button"
+          onClick={() => setShowTypeSelector(true)}
+        >
+          {form.type || 'Seleccionar tipo'}
+        </button>
 
         <input
           placeholder="Lugar"
@@ -55,16 +61,30 @@ export default function BeerModal({ onClose, onSave }: Props) {
     </div>
 
     {showBeerSelector && (
-      <BeerSelectorModal
+      <SelectionModal
+        title="🍺 Selecciona una cerveza"
+        options={BEERS}
         onClose={() => setShowBeerSelector(false)}
-        onSelect={(beerName) => {
+        onSelect={(beer) =>
           setForm({
             ...form,
-            name: beerName
+            name: beer.label
           })
+        }
+      />
+    )}
 
-          setShowBeerSelector(false)
-        }}
+    {showTypeSelector && (
+      <SelectionModal
+        title="🍺 Selecciona un tipo"
+        options={BEER_TYPES}
+        onClose={() => setShowTypeSelector(false)}
+        onSelect={(type) =>
+          setForm({
+            ...form,
+            type: type.label
+          })
+        }
       />
     )}
   </>

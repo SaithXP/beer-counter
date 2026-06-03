@@ -129,33 +129,44 @@ body {
   color: white;
 }
 
-/* GRID DEL SELECTOR DE CERVEZAS*/
+/* SELECTION MODAL */
 
-.beerGrid {
+.selectionGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
-.beerOption {
+.selectionOption {
   background: #334155;
   border-radius: 12px;
   padding: 12px;
 
   display: flex;
   flex-direction: column;
+
   align-items: center;
+  justify-content: center;
+
   gap: 8px;
 
   cursor: pointer;
-
-  transition: transform 0.15s ease;
+  transition: all 0.15s ease;
 }
 
-.beerOption:hover {
+.selectionOption:hover {
   transform: scale(1.03);
 }
 
-.beerEmoji {
-  font-size: 32px;
+.selectionImage {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+
+  display: block;
+}
+
+.selectionLabel {
+  text-align: center;
+  font-size: 0.9rem;
 }
