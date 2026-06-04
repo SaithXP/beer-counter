@@ -5,14 +5,9 @@ export const BEERS = [
         image: '/beers/mahou.png',
     },
     {
-        id: 'mahou-V',
+        id: 'mahou-clasica',
         label: 'Mahou Verde',
-        image: '/beers/mahou-v.png',
-    },
-    {
-        id: 'mahou-R',
-        label: 'Mahou Roja',
-        image: '/beers/mahou-r.png',
+        image: '/beers/mahou-c.png',
     },
     {
         id: 'estrella-galicia',
@@ -23,11 +18,6 @@ export const BEERS = [
         id: 'alhambra',
         label: 'Alhambra',
         image: '/beers/alhambra.png',
-    },
-    {
-        id: 'cruzcampo',
-        label: 'Cruzcampo',
-        image: '/beers/cruzcampo.png',
     },
     {
         id: 'superbock',
