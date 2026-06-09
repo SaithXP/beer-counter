@@ -15,18 +15,18 @@ export const BEER_TYPES = [
     image: '/types/jarra.png'
   },
   {
-    id: 'botellin',
-    label: 'Botelin',
-    image: '/types/botellin.png'
-  },
-  {
     id: 'litrona',
     label: 'Litrona',
     image: '/types/litrona.png'
   },
   {
-    id: 'caña',
+    id: 'canna',
     label: 'Caña',
-    image: '/types/cana.png'
+    image: '/types/canna.png'
+  },
+  {
+    id: 'otro',
+    label: 'Otro',
+    image: '/types/otro.png'
   },
 ]
