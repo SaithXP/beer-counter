@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import BeerModal from './components/BeerModal'
+import BeerGlass from './components/BeerGlassSvg'
 import './App.css'
 
 type Beer = {
@@ -13,6 +14,9 @@ type Beer = {
 function App() {
   const [beers, setBeers] = useState<Beer[]>([])
   const [open, setOpen] = useState(false)
+
+  const currentMonth = new Date().getMonth()
+  const currentYear = new Date().getFullYear()
 
   const addBeer = (data: { name: string; type: string; place: string }) => {
     const newBeer: Beer = {
@@ -30,11 +34,21 @@ function App() {
     setBeers(prev => [newBeer, ...prev])
   }
 
+  const monthlyBeers = beers.filter(b => {
+  const date = new Date(b.date)
+  return (
+      date.getMonth() === currentMonth &&
+      date.getFullYear() === currentYear
+    )
+  })
+
+  const monthlyCount = monthlyBeers.length
+
   return (
     <div className="container">
 
       <h1>Contador de cervezas</h1>
-      <h2>Total: {beers.length}</h2>
+      <BeerGlass amount={monthlyCount} />
 
       <div className="list">
         {beers.map(b => (
